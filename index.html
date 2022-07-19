@@ -83,16 +83,47 @@
                 </div>
             </div>
 
-
             <div class="col-9"> 
                 <div class="card">
                 <div class="card-body">
-                    <h6>Acerca de mi</h6>
-                    <div class="card-text">10 años en el área administrativo/contable enfocado en perspectivas tanto cualitativas como cuantitativas, con el fin de optimizar los recursos económicos y financieros para alcanzar los objetivos de la empresa.
+                    <h6>Acerca de mi</h6>                   
+                    <div id="texto-acerca" class="card-text">10 años en el área administrativo/contable enfocado en perspectivas tanto cualitativas como cuantitativas, con el fin de optimizar los recursos económicos y financieros para alcanzar los objetivos de la empresa.
                     </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <div class="btn" style="font-size: 20px" onclick="cambiar_parrafo()">
+                            <i class="bi bi-pencil-square"></i>
+                            <input type="text" id="editar-texto-acerca" oninput="miFuncion(this.value)" style="display: none;">
+                        </div>
+                    </div>                
                 </div>
                 </div>
             </div>
+                        <script>
+                            //funcion que cambia el estilo visible. toma el valor del texto del parrafo con el id "tetxt-acerca" y lo muestra en consola
+                            function cambiar_parrafo() {
+                                document.getElementById("editar-texto-acerca").style.display="block";
+                                let texto = document.getElementById("texto-acerca").innerText;
+                                console.log(texto);
+                            };
+
+                            function miFuncion(valor) {
+                                document.getElementById("texto-acerca").innerText = valor;
+                            };
+
+                            function logMessage(message){
+                                console.log(message + "<br>");
+                            }
+
+                            //cotrola si se presiona enter
+                            let textarea=document.getElementById("editar-texto-acerca")
+                            textarea.addEventListener('keyup', (e) => {
+                                logMessage( 'key "${e.key}" released [event: keyup]' );
+                                if (e.key=="Enter"){
+                                    document.getElementById("editar-texto-acerca").style.display="none"
+                                }
+                            });
+                        </script>
         
         </div><!--Fin Acerca de mi-->
 
@@ -188,7 +219,7 @@
             <div class="row">
                 <div class="col-4 border text-center rounded-pill">
                     <h3>Email</h3>
-                    <p>freddy.rar@gmail.com</p>                
+                    <p>un.email-2022@gmail.com</p>                
                 </div>
                 <div class="col-4 border text-center rounded-pill bg-info">
                     <h3>Telefono</h3>
